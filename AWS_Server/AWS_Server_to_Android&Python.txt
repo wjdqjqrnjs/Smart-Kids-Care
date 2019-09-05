@@ -1,0 +1,171 @@
+<?php include "../inc/dbinfo.inc";
+
+header("Content-Type: text/html;charset=UTF-8");
+
+
+/* Connect to MySQL and select the database. */
+  $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+
+ if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+
+ $database = mysqli_select_db($connection, DB_DATABASE);
+
+
+$time_8="2019-08-23";
+
+$query_8 = "select *  from  Emotion  where time like '%".$time_8."%' ORDER BY time  DESC  Limit 20";
+
+$result_8= mysqli_query($connection,$query_8);
+
+
+
+$resultArray_8 = array();
+
+while( $row = mysqli_fetch_assoc( $result_8 ) )
+{
+        $arrayMiddle_8 = array(
+                "time"=>$row['time'],
+                "anger"=>$row['anger'],
+                "contempt"=>$row['contempt'],
+                "disgust"=>$row['disgust'],
+                "fear"=>$row['fear'],
+                "happiness"=>$row['happiness'],
+                "neutral"=>$row['neutral'],
+                "sadness"=>$row['sadness'],
+                "surprise"=>$row['surprise'],
+ 	  "temperature"=>$row['temperature'],
+                "light"=>$row['light'],
+          "humidity"=>$row['humidity'],
+                "sound"=>$row['sound']
+);
+
+array_push( $resultArray_8, $arrayMiddle_8 );
+}
+
+
+$time_7="2019-08-22";
+$query_7 = "select *  from  Emotion  where time like '%".$time_7."%' ORDER BY time  DESC  Limit 20";
+
+$result_7 = mysqli_query($connection,$query_7);
+
+$resultArray_7 = array();
+
+while( $row = mysqli_fetch_assoc( $result_7 ) )
+{
+        $arrayMiddle_7 = array(
+                "time"=>$row['time'],
+                "anger"=>$row['anger'],
+                "contempt"=>$row['contempt'],
+                "disgust"=>$row['disgust'],
+                "fear"=>$row['fear'],
+                "happiness"=>$row['happiness'],
+                "neutral"=>$row['neutral'],
+                "sadness"=>$row['sadness'],
+                "surprise"=>$row['surprise'],
+                "temperature"=>$row['temperature'],
+                "light"=>$row['light'],
+          "humidity"=>$row['humidity'],
+                "sound"=>$row['sound']
+);
+
+array_push( $resultArray_7, $arrayMiddle_7 );
+
+
+$time_6="2019-08-21";
+$query_6 = "select *  from  Emotion  where time like '%".$time_6."%' ORDER BY time  DESC  Limit 20";
+
+$result_6 = mysqli_query($connection,$query_6);
+
+
+
+$resultArray_6 = array();
+
+while( $row = mysqli_fetch_assoc( $result_6 ) )
+{
+        $arrayMiddle_6 = array(
+                "time"=>$row['time'],
+                "anger"=>$row['anger'],
+                "contempt"=>$row['contempt'],
+                "disgust"=>$row['disgust'],
+                "fear"=>$row['fear'],
+                "happiness"=>$row['happiness'],
+                "neutral"=>$row['neutral'],
+                "sadness"=>$row['sadness'],
+                "surprise"=>$row['surprise'],
+                "temperature"=>$row['temperature'],
+                "light"=>$row['light'],
+          "humidity"=>$row['humidity'],
+                "sound"=>$row['sound']
+);
+
+array_push( $resultArray_6, $arrayMiddle_6 );
+}
+
+$time_5="2019-08-20";
+$query_5 = "select *  from  Emotion  where time like '%".$time_5."%' ORDER BY time  DESC  Limit 20";
+$result_5 = mysqli_query($connection,$query_5);
+
+
+
+$resultArray_5 = array();
+
+while( $row = mysqli_fetch_assoc( $result_5 ) )
+{
+        $arrayMiddle_5 = array(
+                "time"=>$row['time'],
+                "anger"=>$row['anger'],
+                "contempt"=>$row['contempt'],
+                "disgust"=>$row['disgust'],
+                "fear"=>$row['fear'],
+                "happiness"=>$row['happiness'],
+                "neutral"=>$row['neutral'],
+                "sadness"=>$row['sadness'],
+                "surprise"=>$row['surprise'],
+                "temperature"=>$row['temperature'],
+                "light"=>$row['light'],
+                "humidity"=>$row['humidity'],
+                "sound"=>$row['sound']
+);
+
+array_push( $resultArray_5, $arrayMiddle_5 );
+}
+
+
+
+
+$time_4="2019-08-19";
+$query_4 = "select *  from  Emotion  where time like '%".$time_4."%' ORDER BY time  DESC  Limit 20";
+//where time like '%".$time_1."%'
+$result_4 = mysqli_query($connection,$query_4);
+
+$resultArray_4 = array();
+while( $row = mysqli_fetch_assoc( $result_4 ) )
+{
+        $arrayMiddle_4 = array(
+                "time"=>$row['time'],
+                "anger"=>$row['anger'],
+                "contempt"=>$row['contempt'],
+                "disgust"=>$row['disgust'],
+                "fear"=>$row['fear'],
+                "happiness"=>$row['happiness'],
+                "neutral"=>$row['neutral'],
+                "sadness"=>$row['sadness'],
+                "surprise"=>$row['surprise'],
+                "temperature"=>$row['temperature'],
+                "light"=>$row['light'],
+          "humidity"=>$row['humidity'],
+                "sound"=>$row['sound']
+);
+
+array_push( $resultArray_4, $arrayMiddle_4 );
+
+$final_array= array_merge($resultArray_8,$resultArray_7,$resultArray_6 , $resultArray_5, $resultArray_4);
+
+print_r(json_encode($final_array));
+
+
+
+
+?>
+

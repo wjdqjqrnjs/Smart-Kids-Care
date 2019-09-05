@@ -1,0 +1,52 @@
+<?php include "../inc/dbinfo.inc"; ?>
+
+<h1>INSERT_DB</h1>
+<?php
+echo "start";
+header("Content-Type: application/json");
+
+
+
+$rawData = file_get_contents("php://input");
+$result="";
+$contents = utf8_encode($rawData);
+$result = json_decode($contents);
+
+print_r( $result);
+
+
+  /* Connect to MySQL and select the database. */
+$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD);
+
+if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_err$
+
+
+$database = mysqli_select_db($connection, DB_DATABASE);
+
+$obj = (object)$result;
+
+$c = $result->temperature;
+ $d = $result->light;
+ $e = $result->humidity;
+ $f = $result->sound;
+ $g = $result->anger;
+ $h = $result->contempt;
+ $i = $result->disgust;
+ $j = $result->fear;
+ $k = $result->happiness;
+ $l = $result->neutral;
+ $m = $result->sadness;
+
+$time = date("Y-m-d H-i-s");
+
+$query = "INSERT INTO Emotion (time, anger, contempt, disgust, fear,happiness,neutral,sadness,surprise,temperature, humidity, sound, light) VALUES ( '$time' , '$g' , '$h' , '$i' , '$j' , '$k' , '$l' , '$m' , '$n' , '$c' , '$e' , '$f' , '$d' );";
+  
+
+ if(!mysqli_query($connection, $query))
+{
+  echo("<p>Error adding  data.</p>");
+}
+
+?>
+
+
