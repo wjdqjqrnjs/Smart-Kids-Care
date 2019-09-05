@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.wjdqjqrnjs.MainActivity"
+    tools:showIn="@layout/activity_main"
+    >
+
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:id="@+id/webView"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        >
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            class="com.google.android.gms.maps.MapFragment" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="6">
+
+            <Button
+
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:paddingTop="5dp"
+                android:text="Reset"
+
+                android:textSize="8dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="Go Back"
+                android:textSize="8dp"
+                android:paddingTop="5dp"
+                android:layout_marginTop="0dp"
+                />
+                <Button
+                    android:id="@+id/btnConnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textSize="8dp"
+                    android:paddingTop="7dp"
+                    android:text="연결"
+                    />
+
+                <Button
+                    android:id="@+id/btnSend"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:textSize="8dp"
+                    android:paddingTop="7dp"
+                    android:text="작동"
+                    />
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="음성 인식"
+                    android:textSize="8dp"
+                    android:paddingTop="4dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/Get_voice"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+
+                    />
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/Get_data"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="DB 데이터"-->
+        <!--android:scrollbars="vertical"-->
+        <!--/>-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="그래프 터치!"
+        android:id="@+id/Test"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/Bar_Graph"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:layout_width="280dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Bar_Graph_2"
+                    android:layout_marginTop="8dp"
+                    />
+                    <Button
+                        android:id="@+id/DB_Page"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:text="DB분석 GO"
+                        android:textSize="10dp"
+                        android:paddingTop="4dp"
+                        android:layout_weight="10"
+                        android:layout_marginTop="45dp"
+                        />
+            </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
